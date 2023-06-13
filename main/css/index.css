@@ -1,32 +1,48 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'S-CoreDream-3Light';
+}
+.box-shadow{
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+.font30{
+    font-family: 'S-CoreDream-5Medium';
+    font-size: 30px;
+    font-weight: bold;
+}
 body{
     width: 100%;
 }
 body > div{
     width: 100%;
+    position: relative;
 }
 article#outOfContentArea{
-    height: 70px;
-    z-index: -1;
-    padding: 10px;
+    position: absolute;
+    right: 5%;
 }
-#outOfContentArea picture{
-    width: 30px;
-    height: 30px;
-}
+
+#outOfContentArea picture{}
 #outOfContentArea picture > img{
-    width: 30px;
-    height: 30px;
-    background-color: gray;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(0,0,0,0.1);
     margin-left: 10px;
+    cursor: pointer;
 }
 
 article#contentsArea{
     z-index: 1;
     background-color: aliceblue;
-    transform: translateY(-50px);
+    /* transform: translateY(-100px); */
 }
-#contentsArea div#memberPart{}
-#contentsArea div#memberPart h1{
+#contentsArea div#userPart{}
+#contentsArea div#userPart .user-title{
     width: 200px;
     height: 50px;
     text-align: center;
@@ -39,15 +55,20 @@ article#contentsArea{
     padding: 40px;
 }
 #contentPart nav{
-    width: 100%;
     display: flex;
     justify-content: space-around;
+    padding: 0 30px;
 }
 #contentPart nav .category{
     width: 180px;
     height: 50px;
     background-color: white;
     text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#contentPart nav .category:hover{
+    transform: translate(-3px, -3px);
 }
 #contentPart #content{
     margin-top: 80px;
@@ -55,12 +76,58 @@ article#contentsArea{
     padding: 60px;
     display: flex;
 }
+/* 콘텐츠 내 좌측 영상영역 */
 #contentPart #content > div:nth-child(1){
     width: 65%;
     margin-right: 5%;
-    background-color: white;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
 }
+#contentPart #content > div:nth-child(1) #introVideo{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+#contentPart #content > div:nth-child(1) #introSchedule{
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+    transform: translate(20px, 15px);
+    position: absolute;
+    transition: 0.5s;
+}
+#contentPart #content > div:nth-child(1) #introSchedule:hover{
+    transform: translate(30px, 30px) ;
+    cursor: pointer;
+    
+}
+/* 콘텐츠 내 우측 내용영역 */
 #contentPart #content > div:nth-child(2){
     width: 30%;
-    background-color: white;
+}
+#contentPart #content > div:nth-child(2) > div{
+    margin-bottom: 50px;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+
+}
+#contentPart #content > div:nth-child(2) > div:last-child{
+    margin-bottom: none;
+}
+#contentPart #content > div:nth-child(2) > div > h3{
+    width: 50%;
+    border-bottom: 5px solid transparent;
+    margin-bottom: 0px;
+}
+#contentPart #content > div:nth-child(2) > div:hover > h3{
+    border-bottom: 5px solid rgba(0,0,0,0.5);
+    transition: width 1s;
+    transition-timing-function: ease-in-out;
+    width: 90%;
+}
+#contentPart #content > div:nth-child(2) > div > div{
+    padding: 10px;
 }
